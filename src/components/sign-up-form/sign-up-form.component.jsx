@@ -5,6 +5,7 @@ import Button from "../button/button.component";
 
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
 
+
 import './sign-up-form.styles.scss';
 
 const defaultformFields = {
@@ -17,9 +18,6 @@ const defaultformFields = {
 const SignUpForm = () => {
     const [formFields, setFormFields] = useState(defaultformFields);
     const { displayName, email, password, confirmPassword } = formFields
-
-    console.log(formFields)
-
 
     const resetFormFields = () => {
         setFormFields(defaultformFields);
@@ -102,7 +100,7 @@ const SignUpForm = () => {
                     value={confirmPassword}
                 />
 
-                <Button type = 'submit' > Sign Up</Button>
+                <Button type='submit' > Sign Up</Button>
             </form>
         </div>
     )

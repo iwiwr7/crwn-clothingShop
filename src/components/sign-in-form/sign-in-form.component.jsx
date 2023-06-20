@@ -7,26 +7,24 @@ import { signInWithGooglePopup, createUserDocumentFromAuth, signInAuthUserWithEm
 
 import './sign-in-form.styles.scss';
 
-const defaultformFields = {
+const defaultFormFields = {
     email: '',
     password: '',
 }
 
 const SignInForm = () => {
-    const [formFields, setFormFields] = useState(defaultformFields);
-    const { email, password } = formFields
-
-    console.log(formFields)
+    const [formFields, setFormFields] = useState(defaultFormFields);
+    const { email, password } = formFields;
 
 
     const resetFormFields = () => {
-        setFormFields(defaultformFields);
+        setFormFields(defaultFormFields);
     };
 
 
     const signInWithGoogle = async () => {
-        const { user } = await signInWithGooglePopup();
-        await createUserDocumentFromAuth(user);
+     await signInWithGooglePopup();
+       
     };
 
     const handleSubmit = async (event) => {
@@ -34,9 +32,8 @@ const SignInForm = () => {
 
         try {
 
-            const response = await signInAuthUserWithEmailAndPassword(email, password);
-            console.log(response)
-            // resetwame poletata populneni sled login 
+            const {user} = await signInAuthUserWithEmailAndPassword(email, password);
+
             resetFormFields();
 
         } catch (error) {
